@@ -4,9 +4,9 @@ import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 const TodoList = () => {
   const [tasks, setTasks] = useState([
-    { key: 0, task: "산책하기", isDone: true },
-    { key: 1, task: "명상하기", isDone: false },
-    { key: 2, task: "충분히 잠자기", isDone: false },
+    { key: 0, task: "1km 산책하기", isDone: false },
+    { key: 1, task: "30분 명상하기", isDone: false },
+    { key: 2, task: "8시간 이상 잠자기", isDone: false },
   ]);
   return (
     <Box
@@ -29,7 +29,7 @@ const TodoList = () => {
     >
       <Box alignItems="flex-start" p={5}>
         <Text pb={4} fontSize="lg" fontWeight="medium">
-          이런 활동을 추천해요.
+          이런 활동도 해보세요.
         </Text>
         <Box>
           {tasks.map((task) => {
