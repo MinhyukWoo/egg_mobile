@@ -7,9 +7,14 @@ const ChattingScreen = ({ navigation }) => {
   const [chattings, setChattings] = useState([]);
 
   const [computerQuestions, setComputerQuestions] = useState([
-    { key: 1, sender: "먼지", message: "안녕하세요." },
-    { key: 2, sender: "먼지", message: "반갑습니다." },
-    { key: 3, sender: "먼지", message: "다시봐요." },
+    { key: 1, sender: "먼지", message: "오늘 어떤 일이 있었어?" },
+    { key: 2, sender: "먼지", message: "그 때 어떤 생각/기분이 들었어?" },
+    {
+      key: 3,
+      sender: "먼지",
+      message:
+        "다시 돌아간다면 어떻게 할 것 같아?\n그렇게 생각하는 이유는 뭐야?",
+    },
   ]);
 
   const [chatNum, setChatNum] = useState(10);

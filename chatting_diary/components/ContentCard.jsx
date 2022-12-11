@@ -5,7 +5,7 @@ const ContentCard = () => {
   return (
     <Box alignItems="center">
       <Box
-        maxW="80"
+        maxW="40"
         rounded="lg"
         overflow="hidden"
         borderColor="coolGray.200"

@@ -1,11 +1,12 @@
 import React from "react";
-import { Box, Text, View } from "native-base";
+import { Box, ScrollView, Text, View } from "native-base";
 import ContentCard from "../components/ContentCard";
 import ContentCardList from "../components/ContentCardList";
+import TodoList from "../components/TodoList";
 
 const FeedbackScreen = () => {
   return (
-    <Box pt={4} px={4}>
+    <ScrollView pt={4} px={4}>
       <Box
         p={12}
         m={2}
@@ -18,7 +19,10 @@ const FeedbackScreen = () => {
       </Box>
       <Text fontSize="lg">추천 컨텐츠</Text>
       <ContentCardList></ContentCardList>
-    </Box>
+      <Box py={4}>
+        <TodoList></TodoList>
+      </Box>
+    </ScrollView>
   );
 };
 
