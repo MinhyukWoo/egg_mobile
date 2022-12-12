@@ -152,14 +152,18 @@ const FeedbackScreen = ({ route }) => {
         <Box>
           <TodoList todos={todos} setTodos={setTodos}></TodoList>
         </Box>
-        <Box>
-          <Text fontSize="lg">오늘 추천하는 비디오 컨텐츠에요.</Text>
-          <ContentCardList contents={videoContents}></ContentCardList>
-        </Box>
-        <Box>
-          <Text fontSize="lg">오늘 추천하는 도서 컨텐츠에요.</Text>
-          <ContentCardList contents={bookContents}></ContentCardList>
-        </Box>
+        {videoContents.length > 0 && (
+          <Box>
+            <Text fontSize="lg">오늘 추천하는 비디오 컨텐츠에요.</Text>
+            <ContentCardList contents={videoContents}></ContentCardList>
+          </Box>
+        )}
+        {bookContents.length > 0 && (
+          <Box>
+            <Text fontSize="lg">오늘 추천하는 도서 컨텐츠에요.</Text>
+            <ContentCardList contents={bookContents}></ContentCardList>
+          </Box>
+        )}
       </VStack>
     </ScrollView>
   );

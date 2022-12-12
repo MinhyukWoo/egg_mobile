@@ -7,7 +7,6 @@ const ChattingLog = (props) => {
   const scrollView = useRef();
   return (
     <ScrollView
-      maxH="80%"
       ref={scrollView}
       onContentSizeChange={() => {
         return scrollView.current.scrollToEnd({ animated: true });

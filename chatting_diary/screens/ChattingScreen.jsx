@@ -1,7 +1,9 @@
 import { Box, Button, KeyboardAvoidingView, View } from "native-base";
 import React, { useEffect, useState } from "react";
+import { Platform } from "react-native";
 import ChattingForm from "../components/ChattingForm";
 import ChattingLog from "../components/ChattingLog";
+import { useHeaderHeight } from "@react-navigation/elements";
 
 const ChattingScreen = ({ navigation }) => {
   const [chattings, setChattings] = useState([]);
@@ -48,22 +50,35 @@ const ChattingScreen = ({ navigation }) => {
     computerSend();
   }, []);
 
+  const height = useHeaderHeight();
+
   return (
-    <View pt={4} px={4}>
-      <ChattingLog chattings={chattings}></ChattingLog>
-      {isChattingDone && (
-        <Button
-          onPress={() => {
-            navigation.navigate("피드백", { keyword: chattings[1].message });
-          }}
-        >
-          피드백 페이지로 이동
-        </Button>
-      )}
-      <KeyboardAvoidingView>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : null}
+      keyboardVerticalOffset={Platform.OS === "ios" ? height : null}
+      flex={1}
+      justifyContent="space-between"
+      m={2}
+    >
+      <Box flex={1}>
+        <ChattingLog chattings={chattings}></ChattingLog>
+      </Box>
+      <Box>
+        {isChattingDone && (
+          <Button
+            onPress={() => {
+              navigation.navigate("피드백", {
+                keyword: chattings[1].message,
+              });
+            }}
+            bgColor="amber.800"
+          >
+            피드백 페이지로 이동
+          </Button>
+        )}
         <ChattingForm onSend={userSend}></ChattingForm>
-      </KeyboardAvoidingView>
-    </View>
+      </Box>
+    </KeyboardAvoidingView>
   );
 };
 
