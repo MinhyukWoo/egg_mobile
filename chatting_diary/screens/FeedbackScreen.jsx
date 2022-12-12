@@ -149,7 +149,9 @@ const FeedbackScreen = ({ route }) => {
         <Box>
           <EmotionPieChart data={emotionProbability}></EmotionPieChart>
         </Box>
-
+        <Box>
+          <TodoList todos={todos} setTodos={setTodos}></TodoList>
+        </Box>
         <Box>
           <Text fontSize="lg">오늘 추천하는 비디오 컨텐츠에요.</Text>
           <ContentCardList contents={videoContents}></ContentCardList>
@@ -157,9 +159,6 @@ const FeedbackScreen = ({ route }) => {
         <Box>
           <Text fontSize="lg">오늘 추천하는 도서 컨텐츠에요.</Text>
           <ContentCardList contents={bookContents}></ContentCardList>
-        </Box>
-        <Box>
-          <TodoList todos={todos} setTodos={setTodos}></TodoList>
         </Box>
       </VStack>
     </ScrollView>
