@@ -38,7 +38,7 @@ const ContentCard = ({ title, description, link, thumbnail }) => {
               <Image
                 source={{
                   uri:
-                    thumbnail !== null
+                    thumbnail !== "N" && thumbnail !== null
                       ? thumbnail
                       : "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
                 }}

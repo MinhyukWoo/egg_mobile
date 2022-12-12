@@ -1,0 +1,77 @@
+{
+  "emotion": "happy",
+  "emotion_probability": {
+    "fear": 0.0,
+    "sadness": 0.01,
+    "anxiety": 0.0,
+    "hurt": 0.0,
+    "embarrassment": 0.0,
+    "happiness": 0.84,
+    "comfort": 0.05,
+    "joy": 0.1
+  },
+  "videos": [
+    {
+      "title": "Pharrell Williams - Happy (Official Music Video) - YouTube",
+      "description": "Get Pharrell's album G I R L on iTunes: http://smarturl.it/GIRLitunes Get Pharrell's album G I R L on Amazon: ...",
+      "link": "https://www.youtube.com/watch?v=y6Sxv-sUYtM",
+      "thumbnail": "https://img.youtube.com/vi/y6Sxv-sUYtM/0.jpg"
+    },
+    {
+      "title": "Pharrell Williams - Happy (from Despicable Me 2 ... - YouTube",
+      "description": "Happy” single available now: http://smarturl.it/happypharrellPharrell Williams Dear G  I  R  L  Tour DatesSeptember 9: Phones4U Arena, ...",
+      "link": "https://www.youtube.com/watch?v=C7dPqrmDWxs",
+      "thumbnail": "https://img.youtube.com/vi/C7dPqrmDWxs/0.jpg"
+    },
+    {
+      "title": "Pharrell Williams - Happy (1AM) - YouTube",
+      "description": "Get Pharrell's album G I R L on iTunes: http://smarturl.it/GIRLitunes Get Pharrell's album G I R L on Amazon: ...",
+      "link": "https://www.youtube.com/watch?v=JRMOMjCoR58",
+      "thumbnail": "https://img.youtube.com/vi/JRMOMjCoR58/0.jpg"
+    },
+    {
+      "title": "Happy! (TV Series 2017–2019) - IMDb",
+      "description": "Happy!: Created by Grant Morrison, Brian Taylor. With Christopher Meloni, Ritchie Coster, Lili Mirojnick, Patton Oswalt. An injured hitman befriends his ...",
+      "link": "https://www.imdb.com/title/tt2452242/",
+      "thumbnail": null
+    },
+    {
+      "title": "HAPPY - Pharrell Williams (feat. Minions) - YouTube",
+      "description": "Pharrell Williams - Happy Music Video with Minions | Abonnieren ➤ http://abo.yt/kc | Despicable Me 3 Viral Movie #Trailer | Filminfos ...",
+      "link": "https://www.youtube.com/watch?v=MOWDb2TBYDg",
+      "thumbnail": "https://img.youtube.com/vi/MOWDb2TBYDg/0.jpg"
+    }
+  ],
+  "books": [
+    {
+      "title": "Think Happy: Instant Peptalks to Boost Positivity",
+      "description": "Stay happy—no matter how much life throws at you! Happiness expert and Oprah columnist Karen Salmansohn presents a collection of 50 inspirational inner peptalks to boost your confidence, attitude, and mood.",
+      "link": "https://books.google.com/books?id=ZFqmDAAAQBAJ&printsec=frontcover&dq=happy&hl=ko&sa=X&ved=2ahUKEwiY8NKwgvT7AhWlnXIEHVC3CagQ6AF6BAgHEAI",
+      "thumbnail": "https://books.google.co.kr/books/publisher/content?id=ZFqmDAAAQBAJ&printsec=frontcover&img=1&zoom=5"
+    },
+    {
+      "title": "Be Happy!: Release the Power of Happiness in YOU",
+      "description": "In this book, Robert gives you a front-row seat on his 8-week happiness program—famously tested by independent scientists for the BBC-TV documentary called How to Be Happy.",
+      "link": "https://books.google.com/books?id=Y136DwAAQBAJ&printsec=frontcover&dq=happy&hl=ko&sa=X&ved=2ahUKEwiY8NKwgvT7AhWlnXIEHVC3CagQ6AF6BAgCEAI",
+      "thumbnail": "https://books.google.co.kr/books/publisher/content?id=Y136DwAAQBAJ&printsec=frontcover&img=1&zoom=5"
+    },
+    {
+      "title": "행복을 풀다",
+      "description": "행복은 언제나 그 자리, 우리 안에 있다! 행복에 대한 여러 허상을 파헤치며 행복을 위한 해법을 제시하는 『행복을 풀다』. 세계적으로 유명한 공학자이자 ‘구글X’의 ...",
+      "link": "https://books.google.com/books?id=NuAtDwAAQBAJ&printsec=frontcover&dq=happy&hl=ko&sa=X&ved=2ahUKEwiY8NKwgvT7AhWlnXIEHVC3CagQ6AF6BAgJEAI",
+      "thumbnail": "https://books.google.co.kr/books/publisher/content?id=NuAtDwAAQBAJ&printsec=frontcover&img=1&zoom=5"
+    },
+    {
+      "title": "Happy: Why More Or Less Everything is Absolutely Fine",
+      "description": "By taking control of the stories we tell ourselves, by remembering that \"everything's fine\" even when it might not feel that way, we can allow ourselves to flourish and to live more happily.",
+      "link": "https://books.google.com/books?id=y-j3wAEACAAJ&dq=happy&hl=ko&sa=X&ved=2ahUKEwiY8NKwgvT7AhWlnXIEHVC3CagQ6AF6BAgGEAI",
+      "thumbnail": "https://books.google.co.kr/books/publisher/content?id=y-j3wAEACAAJ&printsec=frontcover&img=1&zoom=5"
+    },
+    {
+      "title": "Happy Moscow",
+      "description": "This new edition contains not only a revised translation of Happy Moscow but several related works: a screenplay, a prescient essay about ecological catastrophe, and two short stories in which same characters reappear and the reader sees ...",
+      "link": "https://books.google.com/books?id=XsZZqofVW2MC&printsec=frontcover&dq=happy&hl=ko&sa=X&ved=2ahUKEwiY8NKwgvT7AhWlnXIEHVC3CagQ6AF6BAgDEAI",
+      "thumbnail": "https://books.google.co.kr/books/publisher/content?id=XsZZqofVW2MC&printsec=frontcover&img=1&zoom=5"
+    }
+  ]
+}

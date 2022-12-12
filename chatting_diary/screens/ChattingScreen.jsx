@@ -54,7 +54,7 @@ const ChattingScreen = ({ navigation }) => {
       {isChattingDone && (
         <Button
           onPress={() => {
-            navigation.navigate("피드백");
+            navigation.navigate("피드백", { keyword: chattings[1].message });
           }}
         >
           피드백 페이지로 이동

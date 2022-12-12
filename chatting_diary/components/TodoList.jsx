@@ -2,15 +2,10 @@ import { Box, Text } from "native-base";
 import React, { useState } from "react";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
-const TodoList = () => {
-  const [tasks, setTasks] = useState([
-    { key: 0, task: "1km 산책하기", isDone: false },
-    { key: 1, task: "30분 명상하기", isDone: false },
-    { key: 2, task: "8시간 이상 잠자기", isDone: false },
-  ]);
+const TodoList = ({ todos, setTodos }) => {
   return (
     <Box
-      maxW="80"
+      width="100%"
       rounded="lg"
       overflow="hidden"
       borderColor="coolGray.200"
@@ -32,16 +27,16 @@ const TodoList = () => {
           이런 활동도 해보세요.
         </Text>
         <Box>
-          {tasks.map((task) => {
+          {todos.map((todo) => {
             return (
-              <Box pb={3} key={task.key}>
+              <Box pb={3} key={todo.key}>
                 <BouncyCheckbox
                   fillColor="green"
-                  text={task.task}
-                  isChecked={task.isDone}
+                  text={todo.task}
+                  isChecked={false}
                   onPress={(isChecked) => {
-                    setTasks((state) => {
-                      state[task.key].isDone = isChecked;
+                    setTodos((state) => {
+                      state[todo.key].isDone = isChecked;
                       return state;
                     });
                   }}
