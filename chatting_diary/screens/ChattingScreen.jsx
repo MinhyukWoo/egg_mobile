@@ -4,12 +4,25 @@ import { Platform } from "react-native";
 import ChattingForm from "../components/ChattingForm";
 import ChattingLog from "../components/ChattingLog";
 import { useHeaderHeight } from "@react-navigation/elements";
+import axios from "axios";
+
+const emotionInfos = [
+  { emotion: "anger", color: "#ff0000", koreanNoun: "분노" },
+  { emotion: "sadness", color: "#0000cd", koreanNoun: "슬픔" },
+  { emotion: "anxiety", color: "#663399", koreanNoun: "불안" },
+  { emotion: "hurt", color: "#8b0000", koreanNoun: "상처" },
+  { emotion: "embarrassment", color: "#778899", koreanNoun: "당황" },
+  { emotion: "happiness", color: "#ffd700", koreanNoun: "행복" },
+  { emotion: "comfort", color: "#008000", koreanNoun: "편안" },
+  { emotion: "joy", color: "#ffb6c1", koreanNoun: "기쁨" },
+];
 
 const ChattingScreen = ({ navigation }) => {
-  const [chattings, setChattings] = useState([]);
+  const [chattings, setChattings] = useState([
+    { key: 1, sender: "먼지", message: "오늘 어떤 일이 있었어?" },
+  ]);
 
   const [computerQuestions, setComputerQuestions] = useState([
-    { key: 1, sender: "먼지", message: "오늘 어떤 일이 있었어?" },
     { key: 2, sender: "먼지", message: "그 때 어떤 생각/기분이 들었어?" },
     {
       key: 3,
@@ -23,20 +36,26 @@ const ChattingScreen = ({ navigation }) => {
   const [isChattingDone, setIsChattingDone] = useState(false);
 
   const computerSend = () => {
-    if (computerQuestions.length > 0) {
-      setChattings((state) => [...state, computerQuestions[0]]);
-      setComputerQuestions((state) => state.slice(1));
-    } else {
-      setChattings((state) => [
-        ...state,
-        { key: 0, sender: "먼지", message: "피드백 페이지로 이동하세요." },
-      ]);
-      setIsChattingDone(true);
-    }
+    setTimeout(() => {
+      if (computerQuestions.length > 0) {
+        setChattings((state) => [...state, computerQuestions[0]]);
+        setComputerQuestions((state) => state.slice(1));
+      } else {
+        setChattings((state) => [
+          ...state,
+          {
+            key: 0,
+            sender: "먼지",
+            message: "피드백 페이지로 이동하세요.",
+          },
+        ]);
+        setIsChattingDone(true);
+      }
+    }, 1000);
   };
 
   const userSend = (message) => {
-    if (!isChattingDone) {
+    if (!isChattingDone && chattings[chattings.length - 1].sender === "먼지") {
       setChattings((state) => [
         ...state,
         { key: chatNum, sender: "나", message },
@@ -45,10 +64,6 @@ const ChattingScreen = ({ navigation }) => {
       computerSend();
     }
   };
-
-  useEffect(() => {
-    computerSend();
-  }, []);
 
   const height = useHeaderHeight();
 
@@ -67,11 +82,55 @@ const ChattingScreen = ({ navigation }) => {
         {isChattingDone && (
           <Button
             onPress={() => {
-              navigation.navigate("Feedback", {
-                keyword: chattings[1].message,
-              });
+              axios({
+                method: "post",
+                url: "http://ubless607.pythonanywhere.com/result/api",
+                data: { name: "minhyuk4", feeling: chattings[1].message },
+              })
+                .then((response) => {
+                  return {
+                    emotion: response.data.emotion,
+                    emotionProbability: response.data.emotions.map(
+                      ({ emotion, probability }) => {
+                        const { color, koreanNoun } = emotionInfos.find(
+                          (emotionInfo) => emotionInfo.emotion === emotion
+                        );
+                        return {
+                          name: koreanNoun,
+                          population: probability,
+                          color,
+                        };
+                      }
+                    ),
+                    videoContents: response.data.videos.map((video, index) => {
+                      return {
+                        key: index,
+                        ...video,
+                      };
+                    }),
+                    bookContents: response.data.books.map((book, index) => {
+                      return {
+                        key: index,
+                        ...book,
+                      };
+                    }),
+                    todos: response.data.todos.map(({ task }, index) => {
+                      return {
+                        key: index,
+                        task,
+                        isDone: false,
+                      };
+                    }),
+                  };
+                })
+                .then((jsonData) => {
+                  navigation.navigate("Feedback", jsonData);
+                })
+                .catch((err) => {
+                  console.error(err);
+                });
             }}
-            bgColor="amber.800"
+            bgColor="amber.500"
           >
             피드백 페이지로 이동
           </Button>

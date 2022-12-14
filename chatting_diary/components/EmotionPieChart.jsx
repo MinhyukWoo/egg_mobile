@@ -1,7 +1,7 @@
 import { Box } from "native-base";
 import React, { useEffect, useState } from "react";
 import { PieChart } from "react-native-chart-kit";
-const colors = ["#e63946", "#ccd5ae", "#a8dadc", "#457b9d", "#1d3557"];
+
 const initChartConfig = {
   backgroundGradientFrom: "#1E2923",
   backgroundGradientFromOpacity: 0,
@@ -46,11 +46,11 @@ const EmotionPieChart = ({ data }) => {
             return a.population < b.population;
           })
           .slice(0, 5)
-          .map(({ name, population }, index) => {
+          .map(({ name, population, color }, index) => {
             return {
               name,
               population,
-              color: colors[index],
+              color,
               legendFontColor: "#7F7F7F",
               legendFontSize: 9,
             };

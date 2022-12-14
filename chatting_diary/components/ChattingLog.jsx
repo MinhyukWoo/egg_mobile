@@ -18,13 +18,7 @@ const ChattingLog = (props) => {
             {chatting.sender === "먼지" ? (
               <Flex direction="row">
                 <ChattingIcon></ChattingIcon>
-                <Box
-                  ml={2}
-                  rounded="sm"
-                  bg="tertiary.50"
-                  alignSelf="center"
-                  p={2}
-                >
+                <Box ml={2} rounded="sm" bg="white" alignSelf="center" p={2}>
                   {chatting.message}
                 </Box>
               </Flex>
@@ -33,7 +27,7 @@ const ChattingLog = (props) => {
                 <Box
                   ml={2}
                   rounded="sm"
-                  bg="tertiary.100"
+                  bg="amber.200"
                   alignSelf="center"
                   p={2}
                 >

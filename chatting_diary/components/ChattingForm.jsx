@@ -25,11 +25,12 @@ const ChattingForm = (props) => {
       <TextArea
         size="md"
         placeholder="채팅하세요."
+        bgColor="amber.50"
         flex={1}
         value={message}
         onChangeText={onChangeTextInput}
       ></TextArea>
-      <Button bgColor="amber.800" onPress={onClickSendButton}>전송</Button>
+      <Button bgColor="amber.500" onPress={onClickSendButton}>전송</Button>
     </Flex>
   );
 };

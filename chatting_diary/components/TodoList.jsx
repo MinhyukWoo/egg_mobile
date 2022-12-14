@@ -2,7 +2,7 @@ import { Box, Text } from "native-base";
 import React, { useState } from "react";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
-const TodoList = ({ todos, setTodos }) => {
+const TodoList = ({ todos }) => {
   return (
     <Box
       width="100%"
@@ -34,12 +34,6 @@ const TodoList = ({ todos, setTodos }) => {
                   fillColor="green"
                   text={todo.task}
                   isChecked={false}
-                  onPress={(isChecked) => {
-                    setTodos((state) => {
-                      state[todo.key].isDone = isChecked;
-                      return state;
-                    });
-                  }}
                 ></BouncyCheckbox>
               </Box>
             );
