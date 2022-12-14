@@ -12,7 +12,7 @@ import {
 import ContentCardList from "../components/ContentCardList";
 import TodoList from "../components/TodoList";
 import EmotionPieChart from "../components/EmotionPieChart";
-import initFeedbackData from "../../assets/initFeedbackData.json";
+import InitFeedbackData from "../../assets/initFeedbackData.json";
 
 const emotionInfos = [
   { emotion: "anger", color: "#ff0000", koreanNoun: "분노" },
@@ -27,13 +27,9 @@ const emotionInfos = [
 
 const FeedbackScreen = ({ route }) => {
   const { emotion, emotionProbability, videoContents, bookContents, todos } =
-    route.params === undefined ? initFeedbackData : route.params;
-  console.log(initFeedbackData);
-  console.log(initFeedbackData.emotion);
-  console.log(emotion);
+    route.params === undefined ? InitFeedbackData : route.params;
   return (
     <ScrollView px={4}>
-      <Box>{JSON.stringify(route)}</Box>
       <VStack space={4} display="flex" w="100%">
         <HStack
           height={100}

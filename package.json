@@ -35,7 +35,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
-    "@bam.tech/react-native-make": "^3.0.3"
+    "@bam.tech/react-native-make": "^3.0.3",
+    "react-devtools": "^4.27.1"
   },
   "private": true
 }

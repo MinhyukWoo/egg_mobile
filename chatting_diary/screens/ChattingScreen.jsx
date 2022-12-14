@@ -1,4 +1,4 @@
-import { Box, Button, KeyboardAvoidingView, View } from "native-base";
+import { Box, Button, KeyboardAvoidingView, Spinner, View } from "native-base";
 import React, { useEffect, useState } from "react";
 import { Platform } from "react-native";
 import ChattingForm from "../components/ChattingForm";
@@ -34,6 +34,7 @@ const ChattingScreen = ({ navigation }) => {
 
   const [chatNum, setChatNum] = useState(10);
   const [isChattingDone, setIsChattingDone] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
   const computerSend = () => {
     setTimeout(() => {
@@ -64,8 +65,60 @@ const ChattingScreen = ({ navigation }) => {
       computerSend();
     }
   };
-
   const height = useHeaderHeight();
+  const onNavigateButtonClick = () => {
+    setIsSending(() => true);
+    axios({
+      method: "post",
+      url: "http://ubless607.pythonanywhere.com/result/api",
+      data: { name: "minhyuk4", feeling: chattings[1].message },
+    })
+      .then((response) => {
+        return {
+          emotion: response.data.emotion,
+          emotionProbability: response.data.emotions.map(
+            ({ emotion, probability }) => {
+              const { color, koreanNoun } = emotionInfos.find(
+                (emotionInfo) => emotionInfo.emotion === emotion
+              );
+              return {
+                name: koreanNoun,
+                population: probability,
+                color,
+              };
+            }
+          ),
+          videoContents: response.data.videos.map((video, index) => {
+            return {
+              key: index,
+              ...video,
+            };
+          }),
+          bookContents: response.data.books.map((book, index) => {
+            return {
+              key: index,
+              ...book,
+            };
+          }),
+          todos: response.data.todos.map(({ task }, index) => {
+            return {
+              key: index,
+              task,
+              isDone: false,
+            };
+          }),
+        };
+      })
+      .then((jsonData) => {
+        navigation.navigate("Feedback", jsonData);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => {
+        setIsSending(() => false);
+      });
+  };
 
   return (
     <KeyboardAvoidingView
@@ -78,59 +131,13 @@ const ChattingScreen = ({ navigation }) => {
       <Box flex={1}>
         <ChattingLog chattings={chattings}></ChattingLog>
       </Box>
+
       <Box>
         {isChattingDone && (
           <Button
-            onPress={() => {
-              axios({
-                method: "post",
-                url: "http://ubless607.pythonanywhere.com/result/api",
-                data: { name: "minhyuk4", feeling: chattings[1].message },
-              })
-                .then((response) => {
-                  return {
-                    emotion: response.data.emotion,
-                    emotionProbability: response.data.emotions.map(
-                      ({ emotion, probability }) => {
-                        const { color, koreanNoun } = emotionInfos.find(
-                          (emotionInfo) => emotionInfo.emotion === emotion
-                        );
-                        return {
-                          name: koreanNoun,
-                          population: probability,
-                          color,
-                        };
-                      }
-                    ),
-                    videoContents: response.data.videos.map((video, index) => {
-                      return {
-                        key: index,
-                        ...video,
-                      };
-                    }),
-                    bookContents: response.data.books.map((book, index) => {
-                      return {
-                        key: index,
-                        ...book,
-                      };
-                    }),
-                    todos: response.data.todos.map(({ task }, index) => {
-                      return {
-                        key: index,
-                        task,
-                        isDone: false,
-                      };
-                    }),
-                  };
-                })
-                .then((jsonData) => {
-                  navigation.navigate("Feedback", jsonData);
-                })
-                .catch((err) => {
-                  console.error(err);
-                });
-            }}
             bgColor="amber.500"
+            isLoading={isSending}
+            onPress={onNavigateButtonClick}
           >
             피드백 페이지로 이동
           </Button>
