@@ -67,7 +67,7 @@ const ChattingScreen = ({ navigation }) => {
         {isChattingDone && (
           <Button
             onPress={() => {
-              navigation.navigate("피드백", {
+              navigation.navigate("Feedback", {
                 keyword: chattings[1].message,
               });
             }}
