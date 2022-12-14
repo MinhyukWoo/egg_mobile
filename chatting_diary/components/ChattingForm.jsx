@@ -21,16 +21,15 @@ const ChattingForm = (props) => {
   };
 
   return (
-    <Flex direction="row" justify="space-evenly" m="1">
+    <Flex direction="row" justify="space-between" align="stretch" m="1">
       <TextArea
         size="md"
         placeholder="채팅하세요."
-        width="100%"
+        flex={1}
         value={message}
         onChangeText={onChangeTextInput}
       ></TextArea>
-      <Spacer></Spacer>
-      <Button onPress={onClickSendButton}>전송</Button>
+      <Button bgColor="amber.800" onPress={onClickSendButton}>전송</Button>
     </Flex>
   );
 };
