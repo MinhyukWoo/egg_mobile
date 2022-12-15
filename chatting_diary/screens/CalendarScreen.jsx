@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Image} from 'native-base'
 import {View,StyleSheet} from 'react-native';
 import {Calendar,CalendarList, Agenda} from 'react-native-calendars';
 import {LocaleConfig} from 'react-native-calendars';
@@ -16,7 +17,7 @@ class Calendars extends Component {
 
   render() {
      return (
-      <View style={{ paddingTop: 100, flex: 1 }}>
+      <View style={{ paddingTop: 10, flex: 1 }}>
         <Calendar
         // Initially visible month. Default = Date()
         current={'2022-12-13'}
@@ -108,6 +109,11 @@ class Calendars extends Component {
           }
         }}
         />
+        <View style={{flex: 0, marginTop:10}}>
+          <Image width='100%' height='70%'
+          source={require('../../assets/calendar_emotion.jpg')} 
+          />
+        </View>
       </View>
      )
    }
